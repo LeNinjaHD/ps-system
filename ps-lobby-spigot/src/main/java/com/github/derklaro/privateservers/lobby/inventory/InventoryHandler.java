@@ -90,10 +90,10 @@ public class InventoryHandler {
   public boolean handleInventoryClick(@NotNull Player player, @NotNull Inventory inventory, @NotNull ItemStack item, int slot) {
     if (inventory.equals(this.mainInventory)) {
       return this.mainInventoryClickHandler.handleClick(player, inventory, item, slot);
-    } else if (inventory.getTitle() != null) {
-      if (inventory.getTitle().equals(this.configuration.getPublicServerListConfiguration().getInventoryTitle())) {
+    } else if (inventory.getView().getTitle() != null) {
+      if (inventory.getView().getTitle().equals(this.configuration.getPublicServerListConfiguration().getInventoryTitle())) {
         return this.publicServersInventoryClickHandler.handleClick(player, inventory, item, slot);
-      } else if (inventory.getTitle().equals(this.configuration.getServiceTemplateStartItems().getInventoryTitle())) {
+      } else if (inventory.getView().getTitle().equals(this.configuration.getServiceTemplateStartItems().getInventoryTitle())) {
         return this.serviceStartInventoryClickHandler.handleClick(player, inventory, item, slot);
       }
     }
